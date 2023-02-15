@@ -62,7 +62,7 @@ public class Sample {
 	        if(kk==true)
 				   System.out.println("file exists");
 			else 
-			       System.out.println("it does not exists");
+			       System.out.println("file does not exists");
 	        System.out.println();
 		}
 		//delete operation

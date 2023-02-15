@@ -15,6 +15,7 @@ public class Application1 {
 		String hh="/home/vijayaero67gmai/Desktop/vij/";
 		File f=new File(hh);
 		Sample d=new Sample(f,hh);
+		System.out.println("Developer: V S Vijay || Emailid: vijayaero67@gmail.com");
 		//home screen
 		while(true) {
 			System.out.println("welcome");
