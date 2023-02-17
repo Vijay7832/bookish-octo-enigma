@@ -2,6 +2,7 @@ package projectoops;
 import java.io.File;
 import java.text.Collator;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,13 +18,21 @@ public class Sample {
 	}
 	//methods to sort in ascending and display
 	public void getSortOrder() {
+		int yy=0;
 		String[] j=s.list();
 		if(j.length==0)
 			System.out.println("Directory is empty");
-		else 
+		else {
 		    Arrays.sort(j,Collator.getInstance());
-		    for(String vij:j) 
-			    System.out.println(vij);
+		    for(String vij:j) {
+		    	File s=new File(ff+vij);
+		    	if(s.isFile()) {
+		    		 System.out.println(vij);
+		    	     yy=yy+1;}
+		    	}
+		    if(yy==0)
+		    	System.out.println("no files found");}
+		    
 	}
 	public void manipulation() throws IOException {
 		Scanner sc=new Scanner(System.in);
@@ -34,52 +43,53 @@ public class Sample {
 		System.out.println("3.Search a file");
 		System.out.println("4.Back to homescreen");
 		//System.out.println();
-		int nn;
-		nn=sc.nextInt();
-		if(nn==4)
-			break;
-		if(nn!=1 && nn!=2 && nn!=3 && nn!=4) {
-			System.out.println("Enter a valid input");
-			continue;
-		}
-		String km;
-		System.out.println("Enter file name");
-	    km=sc.next();
-	    String hm=ff+km;
-        File g=new File(hm);
+		String nn;
+		nn=sc.next();
+		if(nn.equals("4")) {
+			break;}
         //file creation operation
-		if(nn==1) {
+		if(nn.equals("1")) {
+			System.out.println("Enter file name");
+		    String km=sc.next();
+	        File g=new File(ff+km);
 	        boolean kk=g.createNewFile();
 	        if(kk==true)
 				   System.out.println("file added");
 			else 
 			       System.out.println("Already exist .file cannot be  added");
-	        System.out.println();
+	               System.out.println();
 		}
 		//search operation
-		else if(nn==3) {
+		else if(nn.equals("3")) {
+			System.out.println("Enter file name");
+		    String km=sc.next();
+	        File g=new File(ff+km);
 	        boolean kk=g.exists();
 	        if(kk==true)
 				   System.out.println("file exists");
 			else 
 			       System.out.println("file does not exists");
-	        System.out.println();
+	               System.out.println();
 		}
 		//delete operation
-		else if(nn==2) {
-		boolean kk=g.delete();
-        if(kk==true)
-			   System.out.println("file removed");
-		else 
-		       System.out.println("file does not exists");
-        System.out.println();
+		else if(nn.equals("2")) {
+			 System.out.println("Enter file name");
+		     String km=sc.next();
+	         File g=new File(ff+km);
+		     boolean kk=g.delete();
+             if(kk==true)
+			       System.out.println("file removed");
+		     else 
+		           System.out.println("file does not exists");
+                   System.out.println();
 		}
-		}
-		
+		else
+			System.out.println("Enter a valid input");
+			
+		}	
+	
 	}
-	
 }		
-	
 	
 	
 	

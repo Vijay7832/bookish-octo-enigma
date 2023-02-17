@@ -9,10 +9,9 @@ public class Application1 {
 	{
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
-		int x;
 		boolean h=true;
 		//setting directory
-		String hh="/home/vijayaero67gmai/Desktop/vij/";
+		String hh="C:/mono/";
 		File f=new File(hh);
 		Sample d=new Sample(f,hh);
 		System.out.println("Developer: V S Vijay || Emailid: vijayaero67@gmail.com");
@@ -22,23 +21,22 @@ public class Application1 {
 			System.out.println("1.Display files");
 			System.out.println("2.Edit");
 			System.out.println("3.Exit");
-			//System.out.println();
-			x=sc.nextInt();
-		if(x==1) {
-			d.getSortOrder();
-		    System.out.println();}
-		else if(x==2) {
-		    d.manipulation();
-		    System.out.println();}
-		else if(x==3) 
-			break;
-		else
-			System.out.println("Enter a valid input");
+			String x=sc.next();
+			if(x.equals("1")) {
+				d.getSortOrder();
+			    System.out.println();}
+			else if(x.equals("2")) {
+			    d.manipulation();
+			    System.out.println();}
+			else if(x.equals("3")) {
+				break;}
+			else {
+				System.out.println("Enter a valid input");}
+			}
 		}
-	}	
-
+	
 }
-			
+	
 		
 		
 		
